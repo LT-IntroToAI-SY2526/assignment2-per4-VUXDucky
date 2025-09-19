@@ -27,19 +27,34 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         # you should delete the following line
 
         # 1) if we reached the end of the pattern but not source
+        if pind == len(pattern):
+            print("reached end of pattern not source")
+            return None
 
         # 2) if the current thing in the pattern is a %
+        elif pattern[pind] == "%":
+            result = len(source) +
+            sind += 1
+            pind += 1
         # WARNING: this condition contains the bulk of the code for the assignment
         # If you get stuck on this one, we encourage you to attempt the other conditions
         #   and come back to this one afterwards
 
         # 3) if we reached the end of the source but not the pattern
+        elif sind == len(source):
+            print("reached end of source, but not pattern")
+            return None
 
         # 4) if the current thing in the pattern is an _
+        elif pattern[pind] == "_":
+            print(pattern[pind], source[sind])
+            result.append(source[sind])
+            pind += 1
+            sind += 1
 
         # 5) if the current thing in the pattern is the same as the current thing in the
         # source
-        if pattern[pind] == source[sind]:
+        elif pattern[pind] == source[sind]:
             print(pattern[pind], source[sind])
             pind += 1
             sind += 1
@@ -51,7 +66,7 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
             print(pattern[pind] + " " + source[sind])
             print("no match")
             return None 
-
+    print("successful match")
     return result
 
 
