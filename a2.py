@@ -40,7 +40,17 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
                 print(result)
                 return result
             else: 
-                pass
+                pind += 1
+                slocation = sind
+                while pattern[pind] != source[sind]:
+                    sind += 1
+
+                    if sind ==len(source):
+                        return None
+                    
+                print(sind, slocation)
+                result.append(" ".join(source[slocation:sind]))
+                print(result)
         # WARNING: this conditiotion contains the bulk of the code for the assignment
         # If you get stuck on this one, we encourage you to attempt the other conditions
         #   and come back to this one afterwards
